@@ -1,5 +1,5 @@
-# Bike Sharing Case Study
-This project shows EDA and multiple linear regression to predict the demand for shared bikes in the future.
+# Advanced Regression House Prices Study
+This project shows EDA and Lasso and Ridge regression on house prices in Australia.
 
 
 ## Table of Contents
@@ -14,44 +14,64 @@ This project shows EDA and multiple linear regression to predict the demand for 
 
 
 ## Problem Statement
-US Bike-sharing trying to understand the demand for shared bikes after the Covid-19 which has caused a considereable dip in their revenues. The aim of this study is to create a Business Plan which could acceralte the profit after Covid-19 Pandemic.
+A US Based company is trying to enter Australian Market trying to understand the market based on the previous sale data from Australia. The outcome of the regression model analytics to be used by the company to make decisions on if the company should buy the properties or not (enter the market) and also help the company understand how the house prices change with variables/features provided in the dataset.
 
-The Company requirement is as follows -
+Key Points company is looking to find out are 
 
-* To identify the variables that are affecting the use boom bikes e.g. temp, humidity, windspeed, holiday etc.
+- Which variables are significant in predicting the price of a house 
+- How well those variables describe the price of a house.
 
-* Create a linear model that can quantitavely relates to the usage of boom bikes
-
-* Find out the accuracy of the model
+During the process aim is also to find optimal lambda and lasso regression value.
 
 ## Methods Used
 
-These are the steps used to understand, analyse, predict and present the information :
+__These are the steps used in the case study to understand, visualise, anlyze and predict data :__
 
-* Read the file, understand the data and visualize the data to see the behaviour (EDA, Exploraroty Data Analysis)
-* Then the data will be split into trained and test data and train data will be rescalled
-* The Training data will be used to train Data
-* Residual Analysis will conducted
-* Predict and evaluate on the split test set
-* Formulate the equation
+- Read the file, understand the data, remove any duplicates, derive/delete columns/rows if needed, convert columns and visualize the data to see the behaviour (EDA, Exploraroty Data Analysis)
+- Data Preparation
+- Then the data will be split into trained and test data and train data will be rescalled 
+- Feature Selection
+- Lasso,Linear and Ridge Regression Model Building
+- Decision making
 
 ## Conclusions
 
-* Top three of the main contributing features is as follows 
-    * temp (Temperature) - with co-efficient of 0.4712
-    * Light Snow (Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds) - with negative co-efficient of -0.3002
-    * yr (Year) - with co-efficent of 0.2330
-* From EDA it can be observed that 
-    * Spring and winter has the low count of users, while summer and fall tend to be higher count of users
-    * data shows 2019 there where more users than 2018, this could be due to the popularity increase with the product
-    * Month data verifies the data accurated for Season as the season worsens the demand reduces
-    * median on non holiday is higher than holiday, there is slight trend showing non holiday might be better trend
-    * weekday data suggest there median are higher on mon-fri
-    * workingday median shows that working day may be have a slight effect on use
- * Equation derived from the model can be represented as follows
- * 
-#### Count  = 0.233 * yr - 0.1011 * holiday + 0.4712 * temp - 0.1107 * Spring + 0.0558 * Winter - 0.0688 * July + 0.0658 * September - 0.3002 * Light Snow - 0.0796 * Mist
-* Dataset for this trail wasnt large enough so additional data provided in data will provide a more accurate model in the future.
+__Ridge Regression__
+
+From the graph on ridge regression train and test it can be seen that 
+
+Train Score : As the lambda increases this makes the r2 score to decrease, this suggests that it leads to error to be increasing. This is suggesting that the design is becoming more generalised than overfitting. By increasing the alpha the design becomes more generalised.
+
+Test Score: At the lower value of ridge the error is high.From the graph we can see that as the alpha is increasing the error starts decreasing up to the peak point. After the peak point the error is increasing and alpha is decresing. 
+
+
+__Lasso Regression__
+
+
+From the graph on ridge regression train and test it can be seen that
+
+
+Train Score : Error is low at the starting point of lasso regression with fairly high r2 score and slowly peaking to optimal alpha then reducing down gradually as the error increases and design becomes more generalised and simple.
+
+Test Score: Test score follows the same path as the Train score in terms of behaviours.
+
+
+
+
+
+__TOP TO FEATURES BASED ON THIS WOULD BE__
+
+
+- __GrLivArea__
+- __OverallQual__
+- __LandContour_Lvl__
+- __OverallCond__
+- __BsmtQual__
+- __GarageArea__
+- __FireplaceQu__
+- __Condition1_Norm__
+- __Foundation_PConc__
+- __Exterior2nd_CmentBd__
 
 ## Technologies Used
 * Pandas : 1.2.3
@@ -74,7 +94,9 @@ These are the steps used to understand, analyse, predict and present the informa
 
 
 ## Acknowledgements
-* [1] Fanaee-T, Hadi, and Gama, Joao, "Event labeling combining ensemble detectors and background knowledge", Progress in Artificial Intelligence (2013): pp. 1-15, Springer Berlin Heidelberg, doi:10.1007/s13748-013-0040-3
+* https://scikit-learn.org/stable/modules/model_evaluation.html 
+* https://stackoverflow.com/questions/17778394/list-highest-correlation-pairs-from-a-large-correlation-matrix-in-pandas
+* https://stackoverflow.com/questions/35827863/remove-outliers-in-pandas-dataframe-using-percentiles
 
 
 ## Contact
